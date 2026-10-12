@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Organize seus estudos com um temporizador Pomodoro."
+  >
+
+  <title>Pomodoro Clock | Focus Time</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-icon">◷</span>
+        <h1>Focus Time</h1>
+      </div>
+
+      <p>Organize seu tempo. Concentre-se no que importa.</p>
+    </header>
+
+    <section class="timer-card" aria-labelledby="timer-mode">
+      <nav class="mode-selector" aria-label="Modo do temporizador">
+        <button class="mode-button active" data-mode="focus">
+          Foco
+        </button>
+
+        <button class="mode-button" data-mode="short">
+          Pausa curta
+        </button>
+
+        <button class="mode-button" data-mode="long">
+          Pausa longa
+        </button>
+      </nav>
+
+      <div class="timer-content">
+        <p id="timer-mode" class="timer-label">TEMPO DE FOCO</p>
+
+        <div
+          id="timer"
+          class="timer"
+          role="timer"
+          aria-label="Tempo restante"
+        >25:00</div>
+
+        <p id="session-info" class="session-info">
+          Sessão 1 de 4
+        </p>
+
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="Progresso da sessão"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          id="progress-track"
+        >
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div class="timer-actions">
+          <button id="start-button" class="primary-button">
+            ▶ Iniciar
+          </button>
+
+          <button id="reset-button" class="secondary-button">
+            ↻ Reiniciar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Estatísticas">
+      <article class="stat-card">
+        <span class="stat-icon">🎯</span>
+        <p>Sessões concluídas</p>
+        <strong id="completed-sessions">0</strong>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">⏱</span>
+        <p>Tempo de foco</p>
+        <strong id="focus-time">0 min</strong>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">☕</span>
+        <p>Próxima pausa</p>
+        <strong id="next-break">5 min</strong>
+      </article>
+    </section>
+
+    <section class="settings">
+      <h2>Configurações</h2>
+
+      <div class="settings-grid">
+        <label>
+          Tempo de foco (minutos)
+          <input
+            type="number"
+            id="focus-duration"
+            min="1"
+            max="120"
+            value="25"
+          >
+        </label>
+
+        <label>
+          Pausa curta (minutos)
+          <input
+            type="number"
+            id="short-duration"
+            min="1"
+            max="30"
+            value="5"
+          >
+        </label>
+
+        <label>
+          Pausa longa (minutos)
+          <input
+            type="number"
+            id="long-duration"
+            min="1"
+            max="60"
+            value="15"
+          >
+        </label>
+      </div>
+
+      <button id="save-settings" class="secondary-button">
+        Salvar configurações
+      </button>
+
+      <p id="settings-status" role="status"></p>
+    </section>
+
+    <footer class="app-footer">
+      <p>Feito para ajudar você a estudar melhor.</p>
+    </footer>
+  </main>
+</body>
+</html>
